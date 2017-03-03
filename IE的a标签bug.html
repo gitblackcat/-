@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.wrapper{
+			position: relative;
+			width: 500px;
+			height: 500px;
+			border: 1px solid #000;
+		}
+		a{
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			top: 10px;
+			left: 10px;
+			/* background: red; */
+		}
+	</style>
+</head>
+<body>
+	<!-- 在IE10及以下 都不能点击链接,鼠标为三角型,但是把注释的那行css背景加上的时候,ie11以下链接就生效了,鼠标变手型了,当把img注释掉,且把a标签的背景css注释掉,a链接仍然可以点击 -->
+
+	<!-- 这是IE的bug 如果a标签没有内容(边框,背景,文字,图片),则a与img重叠部分会有穿透现象.类似于给a设置了pointer-events: none; -->
+
+	<div class="wrapper">
+		<img src="https://www.baidu.com/img/bd_logo1.png">
+		<a href="http://www.baidu.com"></a>
+	</div>
+</body>
+</html>
