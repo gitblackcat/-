@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jquery的obj.index()方法只能取得的是同辈元素的索引,所以点击下方的test,只会弹出0</h1>
+
+	<ul data-name="yzd">
+		<li>
+			<span class="test">test0</span>
+		</li>
+		<li>
+			<span class="test">test1</span>
+		</li>
+		<li>
+			<span class="test">test2</span>
+		</li>
+		<li>
+			<span class="test">test3</span>
+		</li>
+	</ul>
+
+	<script>
+		$('.test').click(function(){
+			alert( $(this).index() )
+		})
+	</script>
+</body>
+</html>
