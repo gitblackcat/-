@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			transition: height .5s ease;
+		}
+		.h{
+			height: auto;
+		}
+	</style>
+</head>
+<body>
+	<!-- 要让transition动画生效,必须给定一个确定的生效目标 -->
+	<!-- 本例子中,给定的生效目标是不确定的(auto),所以不会生效,如果是一个确定的高度,那么动画会生效 -->
+
+	<div>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+		1
+		<br>
+	</div>
+
+	<script>
+		var onOff = false
+		document.querySelector('div').onclick = function(){
+			onOff ? this.className = '' : this.className = 'h'
+
+			onOff = !onOff
+		}
+	</script>
+</body>
+</html>
