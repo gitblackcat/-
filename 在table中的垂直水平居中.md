@@ -86,4 +86,4 @@ td > div{
 
 - 方法二进行垂直水平居中
 
-仔细研究`<table>`会发现,其实`<td>`是自带垂直居中效果的,所以对于`<td>`中子元素是块级子元素的,直接使用`margin: auto;`就ok了;对于`<td>`中子元素是内联子元素的,就在`<td>`中使用`text-align: center;`就好
+仔细研究`<table>`会发现,其实`<td>`是自带垂直居中效果的,所以对于`<td>`中子元素是块级子元素的,直接使用`margin: auto;`就ok了;对于`<td>`中子元素是内联子元素的,就在`<td>`中使用`text-align: center;`以及在该内联子元素中添加`vertical-align: middle;`就好
