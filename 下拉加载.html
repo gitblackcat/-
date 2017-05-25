@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
+
 <body>
 	<script>
-		$(function(){
+		$(function() {
 			var clientHeight = document.body.clientHeight,
 				oUl = document.getElementsByClassName('polyester-lists')[0],
 				aLi = oUl.getElementsByTagName('li'),
 				oPut = document.querySelector('.J-search'),
 				onOff = true
-			
-			$(window).scroll(function(){
+
+			$(window).scroll(function() {
 				var H = $(document).height(),
-					page = Math.ceil(aLi.length/20) + 1
-											//这里的阈值200不能设置太低,在移动端QQ浏览器下,会达不到阈值
-				if( $(this).scrollTop() + clientHeight + 200 > H && onOff){
+					page = Math.ceil(aLi.length / 20) + 1
+				//这里的阈值200不能设置太低,在移动端QQ浏览器下,会达不到阈值
+				if ($(this).scrollTop() + clientHeight + 200 > H && onOff) {
 					//这里为什么要加一个onOff开关呢?
 					//因为当滚动条在符合请求ajax的位置时候,会重复加载,所以要加一个开关,当ajax成功完成以后,闭合开光,当ajax还没成功完成以前,开关是打开的
 					onOff = false
@@ -26,25 +28,26 @@
 						url: "",
 						data: page,
 						dataType: "json",
-						success: function(data){
-							if( data.length > 0 ){
+						success: function(data) {
+							if (data.length > 0) {
 								//要记得清空str,所以在这里申明
 								var str = ""
-								for(var i=0; i<data.length; i++){
+								for (var i = 0; i < data.length; i++) {
 									var price = data[i].price
 
 									str += "<li class='clearfix'>\
-												<a href='"+data[i].url+"'>\
-													<img src='"+data[i].furl+"' class='fl'>\
-													<p class='polyester-title'>"+data[i].pro_name+"</p>\
-													<p class='polyester-price'>"+price[0]+"<span>/"+price[1]+"</span></p>\
-													<p class='polyester-address'>"+data[i].city+","+data[i].province+"</p>\
+												<a href='" + data[i].url + "'>\
+													<img src='" + data[i].furl + "' class='fl'>\
+													<p class='polyester-title'>" + data[i].pro_name +
+										"</p>\
+													<p class='polyester-price'>" + price[0] + "<span>/" + price[1] + "</span></p>\
+													<p class='polyester-address'>" + data[i].city + "," + data[i].province + "</p>\
 												</a>\
 											</li>"
 								}
 								$(oUl).append(str)
 								onOff = true
-							}				
+							}
 						}
 					})
 				}
@@ -53,4 +56,5 @@
 		})
 	</script>
 </body>
+
 </html>
