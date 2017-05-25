@@ -1,158 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-	<style>
-		html,body,h2{
-			padding: 0;
-			margin: 0;
-		}
-		header,footer{
-			width: 100%;
-			height: 50px;
-		}
-		.fixed-box{
-			position: fixed;
-			left: 0;
-			width: 100%;
-			height: 50px;
-		}
-		header .fixed-box{
-			top: 0;
-			background-color: #45b97c;
-		}
-		footer .fixed-box{
-			bottom: 0;
-			background-color: #464547;
-		}
-		.absolute-box{
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 50px;
-		}
-		h2{
-			text-align: center;
-			line-height: 50px;
-			color: #fff;
-		}
-		.main{
-			position: absolute;
-			top: 50px;
-			bottom: 50px;
-			width: 100%;
-			overflow-y: auto;
-			/* 增加该属性,可以增加弹性 使滑动更丝滑*/
-    		-webkit-overflow-scrolling: touch;
-		}
-		.content{
-			text-align: center;
-		}
-		input{
-			position: absolute;
-			top: 50%;
-			transform: translate3d(20px, -50%, 0);
-			height: 30px;
-			box-sizing: border-box;
-			border-radius: 8px;
-			padding: 10px;
-			border: none;
-			outline: none;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+    html,
+    body,
+    h2 {
+        padding: 0;
+        margin: 0;
+    }
+    
+    header,
+    footer {
+        width: 100%;
+        height: 50px;
+    }
+    
+    .fixed-box {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        height: 50px;
+    }
+    
+    header .fixed-box {
+        top: 0;
+        background-color: #45b97c;
+    }
+    
+    footer .fixed-box {
+        bottom: 0;
+        background-color: #464547;
+    }
+    
+    .absolute-box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+    }
+    
+    h2 {
+        text-align: center;
+        line-height: 50px;
+        color: #fff;
+    }
+    
+    .main {
+        position: absolute;
+        top: 50px;
+        bottom: 50px;
+        width: 100%;
+        overflow-y: auto;
+        /* 增加该属性,可以增加弹性 使滑动更丝滑*/
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .content {
+        text-align: center;
+    }
+    
+    input {
+        position: absolute;
+        top: 50%;
+        transform: translate3d(20px, -50%, 0);
+        height: 30px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        padding: 10px;
+        border: none;
+        outline: none;
+    }
+    </style>
 </head>
+
 <body>
-	<!-- 移动端ios的fixed问题解决:  -->
-	<!-- 
+    <!-- 移动端ios的fixed问题解决:  -->
+    <!--
 		fixed元素内部必须嵌套一个position:absolute元素,用来装载内容,目的就是为了让内容脱离fixed文档流,屏蔽一些fixed的坑
 	-->
-	<!-- 头部和底部这样写,是为了让头部和底部在ios快速上下滑动的时候仍然保持的原来的地方 -->
-	<!-- 中间这么写,是为了在ios中,底部的输入框聚焦弹出软键盘的时候,头部和底部的fixed不适效果 -->
-	<!-- js这么写,是为了防止输入框聚焦时候,被弹出的软键盘遮盖住 -->
-	<header>
-		<div class="fixed-box">
-			<div class="absolute-box">
-				<h2>这是头部</h2>
-			</div>
-		</div>
-	</header>
-	<section class="main">
-		<div class="content">
-			-------------- start --------------<br>
-			<a href="http://www.tuicool.com/articles/Inyueyi" target="_blank">待验证</a> <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    content <br>
-			    --------------- end ---------------
-		</div>
-	</section>
-	<footer>
-		<div class="fixed-box">
-			<div class="absolute-box">
-				<input type="text" placeholder="这里是底部">
-			</div>
-		</div>
-	</footer>
-
-	<script>
-		document.querySelector('input').onfocus = function(){
-			this.scrollIntoView(false)
-		}
-	</script>
+    <!-- 头部和底部这样写,是为了让头部和底部在ios快速上下滑动的时候仍然保持的原来的地方 -->
+    <!-- 中间这么写,是为了在ios中,底部的输入框聚焦弹出软键盘的时候,头部和底部的fixed不适效果 -->
+    <!-- js这么写,是为了防止输入框聚焦时候,被弹出的软键盘遮盖住 -->
+    <header>
+        <div class="fixed-box">
+            <div class="absolute-box">
+                <h2>这是头部</h2>
+            </div>
+        </div>
+    </header>
+    <section class="main">
+        <div class="content">
+            -------------- start --------------
+            <br>
+            <a href="http://www.tuicool.com/articles/Inyueyi" target="_blank">待验证</a>
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> content
+            <br> --------------- end ---------------
+        </div>
+    </section>
+    <footer>
+        <div class="fixed-box">
+            <div class="absolute-box">
+                <input type="text" placeholder="这里是底部">
+            </div>
+        </div>
+    </footer>
+    <script>
+    document.querySelector('input').onfocus = function() {
+        this.scrollIntoView(false)
+    }
+    </script>
 </body>
+
 </html>
