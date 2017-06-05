@@ -42,3 +42,7 @@ mock.js只要引入文件,写好假数据就能用,在jquery中,没有固定套�
 [http://mockjs.com/](http://mockjs.com/)
 
 [https://segmentfault.com/a/1190000003087224](https://segmentfault.com/a/1190000003087224)
+
+推荐使用:
+
+[http://www.easy-mock.com/](http://www.easy-mock.com/)
