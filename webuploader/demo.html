@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="webuploader.css">
+    <style>
+    ul {
+        list-style-type: none;
+    }
+
+    .upload-img-wrap {
+        padding-left: 68px;
+    }
+
+    .upload-img-wrap .left_cs {
+        width: 75px;
+        margin-top: 5px;
+        margin-right: 15px;
+        float: left;
+        text-align: right;
+    }
+
+    .upload-img-wrap {
+        position: relative;
+        height: 116px;
+        margin-top: 10px;
+    }
+
+    .upload-img-list {
+        height: 91px;
+        overflow: hidden;
+    }
+
+    .upload-img-list li {
+        position: relative;
+        float: left;
+        width: 89px;
+        height: 89px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        background: url('http://img.qfc.cn/static/prj/tnc/publish/img/upload-bg.jpg') no-repeat left top;
+    }
+
+    .upload-btn {
+        width: 89px;
+        height: 89px;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    .webuploader-pick {
+        width: 89px;
+        height: 89px;
+    }
+    /* .webuploader-pick-hover {
+        background-color: none;
+    } */
+
+    .preview {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 89px;
+        height: 89px;
+    }
+
+    .delete-img {
+        display: none;
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        width: 22px;
+        height: 22px;
+        background: url('http://img.qfc.cn/static/prj/tnc/publish/img/delete-img.png') no-repeat left top;
+    }
+
+    .prompt {
+        position: absolute;
+        top: 0;
+        left: 266px;
+    }
+    </style>
+</head>
+
+<body>
+    <a href="http://fex.baidu.com/webuploader/" target="_blank">更多配置见文档</a>
+    <div class="upload-img-wrap clearfix">
+        <div class="left_cs"><span class="red-star">*</span>添加图片</div>
+        <ul class="upload-img-list clearfix">
+            <li>
+                <div class="upload-btn" iud="1"></div>
+                <img class="preview">
+                <a href="javascript:;" class="delete-img" onclick="deleteLi(this)"></a>
+            </li>
+            <li>
+                <div class="upload-btn" id="u2"></div>
+                <img class="preview">
+                <a href="javascript:;" class="delete-img" onclick="deleteLi(this)"></a>
+            </li>
+            <li>
+                <div class="upload-btn" id="u3"></div>
+                <img class="preview">
+                <a href="javascript:;" class="delete-img" onclick="deleteLi(this)"></a>
+            </li>
+            <li>
+                <div class="upload-btn" id="u4"></div>
+                <img class="preview">
+                <a href="javascript:;" class="delete-img" onclick="deleteLi(this)"></a>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="http://img.qfc.cn/static/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="webuploader.js"></script>
+    <script>
+    // 初始化Web Uploader
+    var uploader = WebUploader.create({
+
+        // 选完文件后，是否自动上传。
+        auto: true,
+
+        // swf文件路径
+        swf: 'Uploader.swf',
+
+        // 文件接收服务端。
+        server: 'fileupload.php',
+
+        // 选择文件的按钮。可选。
+        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+        pick: '.upload-btn',
+
+        // 只允许选择图片文件。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,png',
+            mimeTypes: 'image/*'
+        }
+    })
+    // console.log(uploader)
+
+    // 当有文件添加进来的时候
+    uploader.on('fileQueued', function(file) {
+        // console.log(file.source.ruid)
+        var uploaderId = '#rt_' + file.source.ruid
+        console.log($(uploaderId).parent())
+
+        var $img = $(uploaderId).parent().next('.preview'),
+            $delete = $img.next()
+
+        $img.show()
+        $delete.show()
+
+        // // 创建缩略图
+        // // 如果为非图片文件，可以不用调用此方法。
+        // // thumbnailWidth x thumbnailHeight 为 100 x 100
+        var thumbnailWidth = 89,
+            thumbnailHeight = 89
+        uploader.makeThumb(file, function(error, src) {
+            if (error) {
+                $img.replaceWith('<span>不能预览</span>');
+                return;
+            }
+
+            $img.attr('src', src);
+        }, thumbnailWidth, thumbnailHeight);
+    })
+
+    // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+    uploader.on('uploadSuccess', function(file, response) {
+        // $('#' + file.id).addClass('upload-state-done');
+        console.log(response)
+    });
+
+    // 文件上传失败，显示上传出错。
+    uploader.on('uploadError', function(file) {
+        alert('给文件上传失败')
+    });
+
+    function deleteLi(obj) {
+        $(obj).prev().hide()
+        $(obj).hide()
+    }
+    </script>
+</body>
+
+</html>
