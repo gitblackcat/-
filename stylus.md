@@ -53,3 +53,18 @@ div {
   font-size: 45px !important;
 }
 ```
+
+做运算的时候遇到的:
+
+```
+padding-top ((94-45)/2)px 
+//这样写编译出来如下
+padding-top: 47px;
+```
+
+正确写法
+
+```
+padding-top ((94 - 45)/2)px
+//减号与数字间要有空格
+```
